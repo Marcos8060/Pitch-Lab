@@ -122,10 +122,12 @@ body{
 }
 .pitch_item{
     width: 350px;
+    margin-left: auto;
+    margin-right: auto;
     height: 220px;
     background: #484565;
     padding: 10px;
-    margin: 10px;
+    margin-bottom: 10px;
     border-radius: 3px;
 }
 .pitch_item > div > img{
@@ -150,6 +152,8 @@ body{
     margin: 8px;
     cursor: pointer;
 }
-.pitches{
-    
+footer{
+    background: #484565;
+    margin-top: 5vh;
+    padding-top: 10px;
 }
