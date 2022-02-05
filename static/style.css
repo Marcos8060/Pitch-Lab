@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Poppins:wght@400;500;600;700&display=swap');
+
+body{
+    background-color: #25253F;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+/* nav section */
+.nav_section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3vh;
+}
+.nav_section > div h1{
+    font-weight: bolder;
+}
+.logins > a{
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    margin: 0 6px;
+}
