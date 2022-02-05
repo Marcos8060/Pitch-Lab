@@ -66,6 +66,20 @@ body{
     padding-bottom: 15px;
     padding-top: 10px;
 }
+.input > form > input{
+    border: 1px solid #CCCCCC;
+    width: 80%;
+    margin: auto;
+}
+.input > form > input:focus{
+    outline: none;
+}
+.input > form > label{
+    margin-left: 10vh;
+}
+.input > form > button{
+    margin-left: 10vh;
+}
 .info{
     background: #484565;
     padding-top: 10px;
