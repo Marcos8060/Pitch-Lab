@@ -121,9 +121,11 @@ body{
     margin-bottom: 8vh;
 }
 .pitch_item{
+    width: 350px;
+    height: 220px;
     background: #484565;
     padding: 10px;
-    margin: 2px;
+    margin: 10px;
     border-radius: 3px;
 }
 .pitch_item > div > img{
@@ -147,4 +149,7 @@ body{
 .card_footer > div > img{
     margin: 8px;
     cursor: pointer;
+}
+.pitches{
+    
 }
