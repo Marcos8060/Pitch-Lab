@@ -71,6 +71,14 @@ body{
     padding-right: 10px;
     font-size: 20px;
 }
+.btn6{
+    background: #4665F1;
+    border: none;
+    color: white;
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+}
 .col-md-5 > h1{
     margin-top: 20vh;
     font-size: 35px;
@@ -107,4 +115,36 @@ body{
 }
 .pitch2{
     margin-top: 5vh;
+}
+.pitch_ideas_title{
+    margin-top: 15vh;
+    margin-bottom: 8vh;
+}
+.pitch_item{
+    background: #484565;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 3px;
+}
+.pitch_item > div > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+}
+.underline{
+    border-bottom: 1px solid gray;
+}
+.item_title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_footer > div > img{
+    margin: 8px;
+    cursor: pointer;
 }
