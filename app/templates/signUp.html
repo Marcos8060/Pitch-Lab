@@ -19,20 +19,20 @@
             <div class="row">
                 <div class="col-md-6 input">
                     <h3 class="text-center">Sign Up</h3>
-                    <form action="" method="POST">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" placeholder="Enter name..." required>
+                    <form action="{{ url_for('register') }}" method="POST">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="Enter email..." required>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email..." required>
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" placeholder="Enter username..." required>
+                        <input type="text" name="username" class="form-control" placeholder="Enter username..." required>
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="Enter password..." maxlength="15" minlength="6">
+                        <input type="password" name="password" class="form-control" placeholder="Enter password..." maxlength="15" minlength="6">
+                        <label for="password" class="form-label">Confirm Password</label>
+                        <input type="password" name="checkpassword" class="form-control" placeholder="Confirm password..." maxlength="15" minlength="6">
                         <button type="submit" class="btn2 mt-3">Submit</button>
                     </form>
                 </div>
                 <div class="col-md-6 info">
-                    <a href="/"><button class="btn3">Login</button></a>
+                    <a href="{{ url_for('login')}}"><button class="btn3">Login</button></a>
                     <h1 style="margin-top: 10vh;">Welcome to Pitchlab community.</h1>
                     <h5>Personalised  updated daily and beautifully presented.Create an account and realise your dreams with pichlab.   </h5>
                 </div>
