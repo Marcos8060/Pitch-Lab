@@ -25,9 +25,18 @@ body{
 }
 .logo{
     margin-top: 3vh;
+    margin-bottom: 10vh;
 }
 /* hero section */
 .btn1{
+    background: #4665F1;
+    border: none;
+    color: white;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+}
+.btn2{
     background: #4665F1;
     border: none;
     color: white;
@@ -39,4 +48,9 @@ body{
     margin-top: 20vh;
     font-size: 35px;
     font-weight: bolder;
+}
+/* signup inputs */
+.input{
+    background: white;
+    padding-bottom: 15px;
 }
