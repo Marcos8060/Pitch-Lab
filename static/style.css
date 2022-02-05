@@ -23,6 +23,9 @@ body{
     text-decoration: none;
     margin: 0 10px;
 }
+.logo{
+    margin-top: 3vh;
+}
 /* hero section */
 .btn1{
     background: #4665F1;
