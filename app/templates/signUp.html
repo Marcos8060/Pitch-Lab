@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
     <title>Sign Up</title>
 </head>
 <body>
+    {% block content %}
     <div class="container">
         <!-- nav section -->
         <div class="logo">
@@ -19,16 +21,21 @@
             <div class="row">
                 <div class="col-md-6 input">
                     <h3 class="text-center">Sign Up</h3>
-                    <form action="{{ url_for('register') }}" method="POST">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Enter email..." required>
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control" placeholder="Enter username..." required>
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Enter password..." maxlength="15" minlength="6">
-                        <label for="password" class="form-label">Confirm Password</label>
-                        <input type="password" name="checkpassword" class="form-control" placeholder="Confirm password..." maxlength="15" minlength="6">
-                        <button type="submit" class="btn2 mt-3">Submit</button>
+                    <form action="{{ url_for('register') }}" method="POST" class="form-register">
+                        {{ form.hidden_tag() }}
+                        {{ form.username.label() }}
+                        {{ form.username(class='form-control',placeholder='User Name...') }}
+
+                        {{ form.email.label() }}
+                        {{ form.email(class='form-control',placeholder='Enter Email...') }}
+
+                        {{ form.password1.label() }}
+                        {{ form.password1(class='form-control',placeholder='Password...') }}
+
+                        {{ form.password2.label() }}
+                        {{ form.password2(class='form-control',placeholder='Confirm password...') }}
+
+                        {{ form.submit(class="btn2 mt-3 mb-4", style="margin-left: 8vh;")}}
                     </form>
                 </div>
                 <div class="col-md-6 info">
@@ -39,5 +46,6 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 </body>
 </html>
