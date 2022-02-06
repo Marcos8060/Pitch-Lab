@@ -5,6 +5,17 @@ from app.models import User
 from app import db
 from app.forms import RegisterForm,LoginForm
 from flask_login import login_user
+from flask_mail import Mail,Message
+
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'marcosgav80@gmail.com'
+app.config['MAIL_PASSWORD'] = 'gxgoeioxyktvhzab'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+mail = Mail(app)
 
 @app.route('/')
 def index():
@@ -19,8 +30,12 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         user = User(username=form.username.data,email=form.email.data,password=form.password1.data)
+        message = Message('Pitch Lab',sender='marcosgav80@gmail.com',recipients=([form.email.data]))
+        message.body = f'Thank you {form.username.data} and welcome to Pitch Lab Community where we turn your dreams into reality'
+        mail.send(message)
         db.session.add(user)
         db.session.commit()
+
         return redirect(url_for('pitches'))
     if form.errors != {}:
         for error_message in form.errors.values():
