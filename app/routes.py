@@ -3,7 +3,7 @@ from flask import render_template,request, redirect, url_for,flash,get_flashed_m
 from app import app
 from app.models import User
 from app import db
-from app.forms import RegisterForm
+from app.forms import RegisterForm,LoginForm
 
 @app.route('/')
 def index():
@@ -28,5 +28,6 @@ def register():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    return render_template('login.html',form=form)
 
