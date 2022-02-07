@@ -147,6 +147,12 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+.item_title > div > img{
+    margin-right: 6px;
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+}
 .card_footer{
     display: flex;
     align-items: center;
@@ -162,12 +168,19 @@ body{
     padding: 20px;
     color: black;
 }
-.profile1 > img{
+.profile1 > div > img{
     width: 150px;
     height: 150px;
     border-radius: 999px;
-    margin-left: 30%;
-    margin-right: 30%;
+   
+}
+.img_box{
+    background: #CCCCCC;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-right: 40%;
+    border-radius: 999px;
 }
 .profile2{
     background: #484565;

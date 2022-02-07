@@ -11,13 +11,18 @@
 <body>
     {% block content %}
        <div class="container">
-        <div class="logo">
+        <div class="logo d-flex align-items-center" style="justify-content: space-between;">
             <h1>Pitch Lab</h1>
+            <a class="nav-link text-white" href="{{url_for('pitches')}}" style="font-size: 20px;">Pitches</a>
         </div>
+        </ul>
            <div class="profile_section">
                <div class="row">
                    <div class="col-md-5 profile1 text-center">
-                       <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="">
+                     <div class="img_box">
+                      <!-- <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt=""> -->
+                     </div>
+                     <img style="margin-top: -120px;margin-left: 20px;"  src="https://img.icons8.com/ios-filled/60/000000/checked-user-male.png"/>
                        <h6 class="mt-3"><span>Username:@{{ current_user.username }}</span></h6>
                        <h6 class="mt-3"><span>Email:@{{ current_user.email }}</span></h6>
                    </div>

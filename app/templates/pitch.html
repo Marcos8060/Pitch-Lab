@@ -28,16 +28,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="#">Business</a>
+                            <!-- <a class="nav-link active text-white" aria-current="page" href="#">Business</a> -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Pickup lines</a>
+                            <!-- <a class="nav-link text-white" href="#">Pickup lines</a> -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Promotion</a>
+                            <!-- <a class="nav-link text-white" href="#">Promotion</a> -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{url_for('profile')}}">My Profile</a>
+                            <a class="nav-link text-white" href="{{url_for('profile')}}">View Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout')}}"><button class="btn4">Log out</button></a>
@@ -69,18 +69,20 @@
                 {% for pitch in pitches %}
                 <div class="col-md-4 pitch_item">
                     <div class="item_title">
-                        <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
+                        <div class="d-flex align-items-center">
+                          <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
+                          <p>{{ pitch.owned_user.username }}</p>
+                        </div>
                         <h5>{{ pitch.category }}</h5>
                     </div>
-                    <p class="underline">{{ pitch.pitch }}</p>
-                    <p>{{ pitch.owned_user.username }}</p>
+                    <p class="underline mt-5">{{ pitch.pitch }}</p>
                     <div class="card_footer">
-                        <a href="{{ url_for('comment')}}"><span class="badge bg-primary">Comment</span></a>
+                        <!-- <a href="{{ url_for('comment')}}"><span class="badge bg-primary">Comment</span></a> -->
                         <!-- <span type='button' class="badge bg-primary" data-bs-toggle="modal" data-bs-target="#commentModal">Comment</span> -->
-                        <div>
+                        <!-- <div>
                             <img src="https://img.icons8.com/material-rounded/24/ffffff/thumbs-down.png" />0
                             <img src="https://img.icons8.com/material-rounded/24/ffffff/thumb-up.png" />0
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 {% endfor %}
