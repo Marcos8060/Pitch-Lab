@@ -33,6 +33,7 @@ def pitches():
         data = Pitch(title,category,pitch,owner_id=current_user.id)
         db.session.add(data)
         db.session.commit()
+        flash('Congratulations,your pitch is saved successfully',category='success')
     pitches = Pitch.query.all()
     return render_template('pitch.html',pitches=pitches)
 
@@ -75,3 +76,15 @@ def logout():
 @app.route('/user')
 def profile():
     return render_template("profile.html")
+
+# comment route
+@app.route('/comments',methods=['GET','POST'])
+def comment():
+    # if request.method == 'POST':
+    #     comment = request.form['comment']
+    #     comment = Comment(comment)
+    #     print(comment)
+    #     db.session.add(comment)
+    #     db.session.commit()
+    # user_comments = Comment.query.all()
+    return render_template('comment.html')

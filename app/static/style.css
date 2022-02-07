@@ -27,6 +27,10 @@ body{
     margin-top: 3vh;
     margin-bottom: 10vh;
 }
+.logo1{
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+}
 /* hero section */
 .btn1{
     background: #4665F1;
@@ -173,6 +177,47 @@ body{
 .profile2 > div{
     padding: 10px;
     margin: 5px;
+}
+/* comment section */
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.top > div > img{
+    margin: 6px;
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+}
+.pitch{
+    background: white;
+    padding: 20px;
+    color: black;
+}
+.comment{
+    background: #484565;
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.textarea::-webkit-input-placeholder{
+    color: white;
+}
+.textarea:focus{
+    color: white;
+}
+.comment_post{
+    background: transparent;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+.comment_post > h5{
+    padding: 10px;
+}
+.comment_post > p{
+    margin-top: 20px;
+    padding-left: 10px;
 }
 footer{
     background: #484565;

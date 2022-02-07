@@ -8,6 +8,7 @@ from datetime import datetime
 
 
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -20,6 +21,8 @@ class User(db.Model,UserMixin):
     email = db.Column(db.String(length=50),nullable=False,unique=True)
     password_hash = db.Column(db.String(255),nullable=False)
     pitches = db.relationship('Pitch',backref='owned_user',lazy='dynamic')
+    # comment = db.relationship('Comment', backref='owned_user', lazy='dynamic')
+
 
     sys.setrecursionlimit(1500)
     @property
@@ -47,7 +50,8 @@ class Pitch(db.Model):
     category = db.Column(db.String(200))
     pitch = db.Column(db.String(255))
     owner_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    like = db.relationship('Like', backref='pitch', lazy='dynamic')
+    # comment = db.relationship('Comment', backref='pitch', lazy='dynamic')
+
 
     def __init__(self,title,category,pitch,owner_id):
         self.title=title
@@ -55,78 +59,25 @@ class Pitch(db.Model):
         self.pitch=pitch
         self.owner_id = owner_id
 
-# like model
-class Like(db.Model):
-    __tablename__ = 'likes'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    post_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+# class Comment(db.Model):
+#     __tablename__ = 'comments'
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+#     pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
+#     comment = db.Column(db.Text)
+#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
-    # save like to database
-    def save_like(self):
-        db.session.add(self)
-        db.session.commit()
+#     def __init__(self,comment):
+#         self.comment=comment
+     
+
+
+
+
+
+
+
     
-     # get all likes related to a single post
-    @classmethod
-    def get_likes(cls, post_id):
-        likes = Like.query.filter_by(post_id=post_id).all()
-        return likes
-    
-     # get like author details from author id
-    @classmethod
-    def get_like_author(cls, user_id):
-        author = User.query.filter_by(id=user_id).first()
-        return author
+   
 
-# comments table
-class Comment(db.Model):
-    __tablename__ = 'comments'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
-    body = db.Column(db.Text)
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-
-# save comment to database
-    def save_comment(self):
-        db.session.add(self)
-        db.session.commit()
-
-    # get all comments related to a single post
-    @classmethod
-    def get_comments(cls, post_id):
-        comments = Comment.query.filter_by(post_id=post_id).all()
-        return comments
-
-    # get comment author details from author id
-    @classmethod
-    def get_comment_author(cls, user_id):
-        author = User.query.filter_by(id=user_id).first()
-        return author
-
-class Dislike(db.Model):
-    __tablename__ = 'dislikes'
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-
-    # save like to database
-    def save_dislike(self):
-        db.session.add(self)
-        db.session.commit()
-
-    # get all likes related to a single post
-    @classmethod
-    def get_dislikes(cls, post_id):
-        dislikes = Dislike.query.filter_by(post_id=post_id).all()
-        return dislikes
-
-     # get like author details from author id
-    @classmethod
-    def get_dislike_author(cls, user_id):
-        author = User.query.filter_by(id=user_id).first()
-        return author
 
