@@ -12,6 +12,7 @@
 * Git
 * virtual environment
 * pip install flask
+* pip install flask_login
 * pip install gunicorn
 * install heroku cli
 
@@ -23,7 +24,6 @@ Technolgies used
 * Python 3.8
 * Flask
 * Bootstrap
-* News API
 
 ## Licence and Copyright
 MIT License
