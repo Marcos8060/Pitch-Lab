@@ -59,6 +59,8 @@ class Pitch(db.Model):
         self.pitch=pitch
         self.owner_id = owner_id
 
+
+
 # class Comment(db.Model):
 #     __tablename__ = 'comments'
 #     id = db.Column(db.Integer, primary_key=True)
