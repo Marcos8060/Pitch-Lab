@@ -36,9 +36,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Promotion</a>
                         </li>
-
                         <li class="nav-item">
-                           <a class="nav-link" href="{{ url_for('pitches')}}"><button class="btn4">Log out</button></a>
+                            <a class="nav-link text-white" href="{{url_for('profile')}}">My Profile</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="{{ url_for('logout')}}"><button class="btn4">Log out</button></a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +51,7 @@
             <div class="row">
                 <div class="col-md-5 pitch1">
                     <h1>Do you look forward to turning your ideas into reality? Look no further than Pitch lab.</h1>
-                    <button class="btn5">Pitch here <img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/32/ffffff/external-right-arrow-arrows-kmg-design-basic-outline-kmg-design-1.png"/></button>
+                    <button type="button" class="btn5" data-bs-toggle="modal" data-bs-target="#exampleModal">Pitch here<img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/32/ffffff/external-right-arrow-arrows-kmg-design-basic-outline-kmg-design-1.png"/></button>
                 </div>
                 <div class="col-md-7 pitch2">
                     <img class="img-fluid" src="../static//Images/pitch5.png" alt="">
@@ -62,12 +64,14 @@
         </div>
         <div class="pitch_container">
             <div class="row pitches">
+                {% for pitch in pitches %}
                 <div class="col-md-4 pitch_item">
                     <div class="item_title">
                       <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
-                      <h5>Business</h5>
+                      <h5>{{ pitch.category }}</h5>
                     </div>
-                    <p class="underline">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,</p>
+                    <p class="underline">{{ pitch.pitch }}</p>
+                    <p>{{ pitch.owned_user.username }}</p>
                     <div class="card_footer">
                         <button class="btn6">Comment</button>
                         <div>
@@ -76,78 +80,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 pitch_item">
-                    <div class="item_title">
-                      <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
-                      <h5>Business</h5>
-                    </div>
-                    <p class="underline">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,</p>
-                    <div class="card_footer">
-                        <button class="btn6">Comment</button>
-                        <div>
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumbs-down.png"/>0
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumb-up.png"/>0
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 pitch_item">
-                    <div class="item_title">
-                      <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
-                      <h5>Business</h5>
-                    </div>
-                    <p class="underline">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,</p>
-                    <div class="card_footer">
-                        <button class="btn6">Comment</button>
-                        <div>
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumbs-down.png"/>0
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumb-up.png"/>0
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 pitch_item">
-                    <div class="item_title">
-                      <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
-                      <h5>Business</h5>
-                    </div>
-                    <p class="underline">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,</p>
-                    <div class="card_footer">
-                        <button class="btn6">Comment</button>
-                        <div>
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumbs-down.png"/>0
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumb-up.png"/>0
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 pitch_item">
-                    <div class="item_title">
-                      <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
-                      <h5>Business</h5>
-                    </div>
-                    <p class="underline">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,</p>
-                    <div class="card_footer">
-                        <button class="btn6">Comment</button>
-                        <div>
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumbs-down.png"/>0
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumb-up.png"/>0
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-4 pitch_item">
-                    <div class="item_title">
-                      <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
-                      <h5>Business</h5>
-                    </div>
-                    <p class="underline">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,</p>
-                    <div class="card_footer">
-                        <button class="btn6">Comment</button>
-                        <div>
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumbs-down.png"/>0
-                            <img src="https://img.icons8.com/material-rounded/24/ffffff/thumb-up.png"/>0
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
+  <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                 <form action="{{ url_for('pitches') }}" method="POST">
+                     <label for="title" class="form-label">Title</label>
+                     <input type="text" class="form-control" name="title" placeholder="Title..." required>
+                     <label for="category" class="form-label">Category</label>
+                     <input type="text" class="form-control" name="category" placeholder="Category..." required>
+                     <label for="pitch" class="form-label">Pitch</label>
+                     <textarea class="form-control" name="pitch" id="" cols="30" rows="5" placeholder="Pitch..." required></textarea>
+                </div>
+                <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- End of Modal -->
     </div>
     <footer>
         <div class="container">
