@@ -47,7 +47,8 @@ def register():
         mail.send(message)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('pitches'))
+        flash(f'Welcome to Pitchlab to proceed, kindly login',category='success')
+        # return redirect(url_for('pitches'))
     if form.errors != {}:
         for error_message in form.errors.values():
             flash(f'There was an error with creating a user: {error_message}',category='danger')
