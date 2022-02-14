@@ -10,7 +10,6 @@ app = Flask(__name__)
 
 
 # app.config['SQLALCHEMY_DATABASE_URI']='postgresql://marcos:getaways@localhost/pitch_lab'
-# SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("postgres://", "postgresql://", 1)
 
 
