@@ -8,6 +8,10 @@ from flask_script import Manager,Server
 manager = Manager(app)
 manager.add_command('server',Server)
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
 @manager.shell
 def make_shell_context():
     return dict(app = app,db = db, User=User, Pitch = Pitch)
