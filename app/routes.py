@@ -72,7 +72,7 @@ def login():
         if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
             login_user(attempted_user)
             flash(f'Success! You are logged in as {attempted_user.username}',category='success')
-            return redirect(url_for('pitches'))
+            return redirect(url_for('index'))
         else:
             flash('Username and password do not match! Please try again',category='danger')
 
