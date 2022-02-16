@@ -13,6 +13,7 @@ app = Flask(__name__)
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
+
 app.config['SECRET_KEY'] = '944d51c0258f07f940b031b2'
 login_manager = LoginManager(app)
 
