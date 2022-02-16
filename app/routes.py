@@ -20,7 +20,17 @@ mail = Mail(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        title = request.form['title']
+        category = request.form['category']
+        pitch = request.form['pitch']
+        print(title,category,pitch)
+        data = Pitch(title,category,pitch,owner_id=current_user.id)
+        db.session.add(data)
+        db.session.commit()
+        flash('Congratulations,your pitch is saved successfully',category='success')
+    pitches = Pitch.query.all()
+    return render_template('index.html',pitches=pitches)
 
 @app.route('/pitches',methods=['GET','POST'])
 @login_required
@@ -48,7 +58,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash(f'Welcome to Pitchlab to proceed, kindly login',category='success')
-        # return redirect(url_for('pitches'))
+        return redirect(url_for('index'))
     if form.errors != {}:
         for error_message in form.errors.values():
             flash(f'There was an error with creating a user: {error_message}',category='danger')

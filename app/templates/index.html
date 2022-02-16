@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
     <title>Pitch Lab</title>
 </head>
-<body>
+<body style="background: #25253F;">
     {% block content %}
     <div class="container">
         <!-- nav section -->
@@ -18,8 +18,12 @@
                 <h1>Pitch Lab</h1>
             </div>
             <div class="logins">
+                {% if current_user.is_authenticated %}
+                <a href="/">Hey {{current_user.username }}</a>
+                {% else %}
                 <a href="{{ url_for('register')}}">Sign Up</a>
                 <a href="{{ url_for('login')}}">Login</a>
+                {% endif %}
             </div>
         </div>
         <!-- hero section -->
@@ -32,6 +36,25 @@
                 <div class="col-md-7">
                     <img class="img-fluid" src="../static//Images/pitch4.png" alt="img">
                 </div>
+            </div>
+        </div>
+        <div class="pitch_ideas_title">
+            <h1>Top Pitch Ideas</h1>
+        </div>
+        <div class="pitch_container">
+            <div class="row pitches">
+                {% for pitch in pitches %}
+                <div class="col-md-4 pitch_item">
+                    <div class="item_title">
+                        <div class="d-flex align-items-center">
+                          <img class="img-fluid" src="https://avatars.githubusercontent.com/u/76810083?v=4" alt="profile">
+                          <p>{{ pitch.owned_user.username }}</p>
+                        </div>
+                        <h5>{{ pitch.category }}</h5>
+                    </div>
+                    <p class="underline mt-5">{{ pitch.pitch }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
