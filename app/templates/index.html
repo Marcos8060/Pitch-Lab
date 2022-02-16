@@ -19,7 +19,7 @@
             </div>
             <div class="logins">
                 {% if current_user.is_authenticated %}
-                <a href="/">Hey {{current_user.username }}</a>
+                <a href="{{ url_for('profile')}}">Hey {{current_user.username }}</a>
                 <a href="{{ url_for('pitches')}}">Create Pitch</a>
                 {% else %}
                 <a href="{{ url_for('register')}}">Sign Up</a>
