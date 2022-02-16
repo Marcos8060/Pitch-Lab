@@ -33,7 +33,6 @@ def index():
     return render_template('index.html',pitches=pitches)
 
 @app.route('/pitches',methods=['GET','POST'])
-@login_required
 def pitches():
     if request.method == 'POST':
         title = request.form['title']
